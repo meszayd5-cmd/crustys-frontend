@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+/* -------------------------------------------------------------
+   Crusty’s Express - Design System Core Tokens
+   Mapped from DESIGN.md (Vivid Crimson, Subtle Glows, 16px Corners)
+   ------------------------------------------------------------- */
+
+:root {
+  /* Brand Color System */
+  --color-bg-base: #050505;
+  --color-bg-surface: #0c0c0e;
+  --color-bg-elevated: #121215;
+  
+  --color-primary: #E50914;
+  --color-primary-glow: rgba(229, 9, 20, 0.15);
+  
+  --color-accent: #ffc700;
+  --color-accent-glow: rgba(255, 199, 0, 0.08);
+  
+  --color-border: #1a1a1e;
+  --color-text-high: #FFFFFF;
+  --color-text-muted: #B3B3B3;
+
+  /* Spacing Scale (8px Grid) */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-2xl: 64px;
+
+  /* Rounded Corners (Border-Radius Scale) */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* Animation & Transition Guidelines */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-medium: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 450ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Default Theme Configuration for Tailwind Integration */
+@theme inline {
+  --color-background: var(--color-bg-base);
+  --color-foreground: var(--color-text-high);
+}
+
+/* -------------------------------------------------------------
+   Global Resets & HTML Layout Styling
+   ------------------------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-high);
+}
+
+body {
+  background-color: var(--color-bg-base);
+  color: var(--color-text-high);
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* -------------------------------------------------------------
+   Custom Scrollbar (Premium Dark Theme Styling)
+   ------------------------------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-bg-elevated);
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--color-bg-base);
+  transition: var(--transition-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* -------------------------------------------------------------
+   Hardware-Accelerated Animation Classes & Keyframes
+   ------------------------------------------------------------- */
+
+@keyframes brandPulse {
+  0% {
+    opacity: 0.96;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.96;
+  }
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-brand-pulse {
+  animation: brandPulse 3s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slideUpFade var(--transition-fast) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--transition-fast) forwards;
+}
+
+/* -------------------------------------------------------------
+   Premium Focus States for Keyboard Navigation Accessibility
+   ------------------------------------------------------------- */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+/* -------------------------------------------------------------
+   Interactive Component Utility Styles
+   ------------------------------------------------------------- */
+
+.premium-card-hover {
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.premium-card-hover:hover {
+  transform: translateY(-2px);
+  border-color: rgba(227, 28, 37, 0.2);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.btn-primary-hover {
+  transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn-primary-hover:hover {
+  transform: translateY(-1px);
+  background-color: #f0242d;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.btn-primary-hover:active {
+  transform: translateY(0);
+}
+
+/* -------------------------------------------------------------
+   Scrollbar Hiding Utility
+   ------------------------------------------------------------- */
+.scrollbar-none::-webkit-scrollbar {
+  display: none !important;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+.font-bebas {
+  font-family: var(--font-bebas), var(--font-display), sans-serif;
+}
+
+/* -------------------------------------------------------------
+   Custom Page Layout Containers (Resolves Navbar Overlap)
+   ------------------------------------------------------------- */
+.menu-page-container {
+  padding-top: 104px !important; /* Compact mobile top spacing */
+}
+
+@media (min-width: 768px) {
+  .menu-page-container {
+    padding-top: 120px !important; /* Tight tablet spacing */
+  }
+}
+
+@media (min-width: 1024px) {
+  .menu-page-container {
+    padding-top: 136px !important; /* Compact premium desktop spacing */
+  }
+}
+
