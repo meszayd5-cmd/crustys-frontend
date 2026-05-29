@@ -231,14 +231,6 @@ export const CategoryTabs: React.FC<CategoryTabsProps> = ({
         </div>
 
       </div>
-
-      {/* Mobile-only Swipe indicator */}
-      <div className="flex justify-center md:hidden mt-6 relative z-10 animate-pulse">
-        <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#0c0c0e]/95 backdrop-blur-md border border-[#e31c25]/25 text-[9px] text-[#8e8e93] font-bold tracking-widest uppercase shadow-md">
-          <span className="w-1.2 h-1.2 rounded-full bg-[#e31c25]" />
-          <span>Swipe or Tap Arrows to Scroll</span>
-        </div>
-      </div>
       
     </div>
   );

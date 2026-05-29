@@ -268,16 +268,16 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
             
             {/* Pillar 1 */}
-            <div className="group bg-white/[0.01] border border-white/[0.03] hover:border-[#e31c25]/30 p-8 rounded-[2rem] hover:bg-white/[0.02] shadow-[0_15px_35px_-10px_rgba(0,0,0,0.6)] hover:shadow-[0_20px_45px_rgba(227,28,37,0.04)] transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between items-start min-h-[300px]">
-              <div className="space-y-6">
+            <div className="group bg-white/[0.01] border border-white/[0.03] hover:border-[#e31c25]/30 p-6 md:p-8 rounded-[2rem] hover:bg-white/[0.02] shadow-[0_15px_35px_-10px_rgba(0,0,0,0.6)] hover:shadow-[0_20px_45px_rgba(227,28,37,0.04)] transition-all duration-500 hover:-translate-y-2 flex flex-col justify-center md:justify-between items-center md:items-start min-h-[250px] md:min-h-[300px]">
+              <div className="space-y-5 md:space-y-6 flex flex-col items-center md:items-start">
                 <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-[#121215] border border-[#1f1f23] group-hover:border-[#e31c25]/45 group-hover:shadow-[0_0_15px_rgba(227,28,37,0.15)] transition-all duration-350">
                   <FlameIcon />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-xl font-extrabold text-white tracking-tight font-display" style={{ fontFamily: "var(--font-display)" }}>
+                  <h3 className="text-xl font-extrabold text-white tracking-tight font-display text-center md:text-left" style={{ fontFamily: "var(--font-display)" }}>
                     FRESH NEVER FROZEN
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#93939a] leading-relaxed font-medium">
+                  <p className="text-xs sm:text-sm text-[#93939a] leading-relaxed font-medium text-center md:text-left">
                     We source local Canadian AAA beef daily, kept at absolute chill without freezing. Every single patty is hand-rolled and packed with zero filler.
                   </p>
                 </div>
@@ -285,16 +285,16 @@ export default function AboutPage() {
             </div>
 
             {/* Pillar 2 */}
-            <div className="group bg-white/[0.01] border border-white/[0.03] hover:border-[#e31c25]/30 p-8 rounded-[2rem] hover:bg-white/[0.02] shadow-[0_15px_35px_-10px_rgba(0,0,0,0.6)] hover:shadow-[0_20px_45px_rgba(227,28,37,0.04)] transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between items-start min-h-[300px]">
-              <div className="space-y-6">
+            <div className="group bg-white/[0.01] border border-white/[0.03] hover:border-[#e31c25]/30 p-6 md:p-8 rounded-[2rem] hover:bg-white/[0.02] shadow-[0_15px_35px_-10px_rgba(0,0,0,0.6)] hover:shadow-[0_20px_45px_rgba(227,28,37,0.04)] transition-all duration-500 hover:-translate-y-2 flex flex-col justify-center md:justify-between items-center md:items-start min-h-[250px] md:min-h-[300px]">
+              <div className="space-y-5 md:space-y-6 flex flex-col items-center md:items-start">
                 <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-[#121215] border border-[#1f1f23] group-hover:border-[#e31c25]/45 group-hover:shadow-[0_0_15px_rgba(227,28,37,0.15)] transition-all duration-350">
                   <SparklesIcon />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-xl font-extrabold text-white tracking-tight font-display" style={{ fontFamily: "var(--font-display)" }}>
+                  <h3 className="text-xl font-extrabold text-white tracking-tight font-display text-center md:text-left" style={{ fontFamily: "var(--font-display)" }}>
                     HIGH-CONTACT SMASH
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#93939a] leading-relaxed font-medium">
+                  <p className="text-xs sm:text-sm text-[#93939a] leading-relaxed font-medium text-center md:text-left">
                     Two patties are smashed hard with intense spatial precision under custom iron presses. Results: maximum surface sear and an incomparable crispy ring.
                   </p>
                 </div>
@@ -302,16 +302,16 @@ export default function AboutPage() {
             </div>
 
             {/* Pillar 3 */}
-            <div className="group bg-white/[0.01] border border-white/[0.03] hover:border-[#e31c25]/30 p-8 rounded-[2rem] hover:bg-white/[0.02] shadow-[0_15px_35px_-10px_rgba(0,0,0,0.6)] hover:shadow-[0_20px_45px_rgba(227,28,37,0.04)] transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between items-start min-h-[300px]">
-              <div className="space-y-6">
+            <div className="group bg-white/[0.01] border border-white/[0.03] hover:border-[#e31c25]/30 p-6 md:p-8 rounded-[2rem] hover:bg-white/[0.02] shadow-[0_15px_35px_-10px_rgba(0,0,0,0.6)] hover:shadow-[0_20px_45px_rgba(227,28,37,0.04)] transition-all duration-500 hover:-translate-y-2 flex flex-col justify-center md:justify-between items-center md:items-start min-h-[250px] md:min-h-[300px]">
+              <div className="space-y-5 md:space-y-6 flex flex-col items-center md:items-start">
                 <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-[#121215] border border-[#1f1f23] group-hover:border-[#e31c25]/45 group-hover:shadow-[0_0_15px_rgba(227,28,37,0.15)] transition-all duration-350">
                   <BoltIcon />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-xl font-extrabold text-white tracking-tight font-display" style={{ fontFamily: "var(--font-display)" }}>
+                  <h3 className="text-xl font-extrabold text-white tracking-tight font-display text-center md:text-left" style={{ fontFamily: "var(--font-display)" }}>
                     TRIPLE DREDGED CHIX
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#93939a] leading-relaxed font-medium">
+                  <p className="text-xs sm:text-sm text-[#93939a] leading-relaxed font-medium text-center md:text-left">
                     Our chicken fillets are submerged in house-spiced buttermilk for 12 hours, then triple-coated for a loud, thick, ridiculously crunchy outer shield.
                   </p>
                 </div>
@@ -319,16 +319,16 @@ export default function AboutPage() {
             </div>
 
             {/* Pillar 4 */}
-            <div className="group bg-white/[0.01] border border-white/[0.03] hover:border-[#e31c25]/30 p-8 rounded-[2rem] hover:bg-white/[0.02] shadow-[0_15px_35px_-10px_rgba(0,0,0,0.6)] hover:shadow-[0_20px_45px_rgba(227,28,37,0.04)] transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between items-start min-h-[300px]">
-              <div className="space-y-6">
+            <div className="group bg-white/[0.01] border border-white/[0.03] hover:border-[#e31c25]/30 p-6 md:p-8 rounded-[2rem] hover:bg-white/[0.02] shadow-[0_15px_35px_-10px_rgba(0,0,0,0.6)] hover:shadow-[0_20px_45px_rgba(227,28,37,0.04)] transition-all duration-500 hover:-translate-y-2 flex flex-col justify-center md:justify-between items-center md:items-start min-h-[250px] md:min-h-[300px]">
+              <div className="space-y-5 md:space-y-6 flex flex-col items-center md:items-start">
                 <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-[#121215] border border-[#1f1f23] group-hover:border-[#e31c25]/45 group-hover:shadow-[0_0_15px_rgba(227,28,37,0.15)] transition-all duration-350">
                   <ShieldIcon />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-xl font-extrabold text-white tracking-tight font-display" style={{ fontFamily: "var(--font-display)" }}>
+                  <h3 className="text-xl font-extrabold text-white tracking-tight font-display text-center md:text-left" style={{ fontFamily: "var(--font-display)" }}>
                     LATE NIGHT RADAR
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#93939a] leading-relaxed font-medium">
+                  <p className="text-xs sm:text-sm text-[#93939a] leading-relaxed font-medium text-center md:text-left">
                     Operational dispatch channels are armed until 3:00 AM. Form-fitting ventilated burger containers preserve temperature and prevent humidity decay.
                   </p>
                 </div>

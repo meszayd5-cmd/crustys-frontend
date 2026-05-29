@@ -60,7 +60,7 @@ export default function MenuPage() {
 
   return (
     <div className="menu-page-container bg-[#080809] min-h-[calc(100vh-80px)] pb-12 md:pb-20 lg:pb-24">
-      <div className="mx-auto max-w-[1550px] px-12 xl:px-16 space-y-10 md:space-y-14 w-full">
+      <div className="mx-auto max-w-[1550px] px-6 sm:px-12 xl:px-16 space-y-10 md:space-y-14 w-full">
         
         {/* Catalog Section Header */}
         <div 
@@ -107,19 +107,19 @@ export default function MenuPage() {
         <div className="h-14 sm:h-20 lg:h-24" />
 
         {/* Products Grid catalog */}
-        <div id="menu-product-grid" aria-live="polite" className="w-full mx-auto">
+        <div id="menu-product-grid" aria-live="polite" className="w-full flex flex-col items-center sm:block px-4 sm:px-0">
           {isLoading ? (
-            <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mx-auto ${getGridMaxWidthClass(4)}`}>
+            <div className={`grid grid-cols-1 justify-items-center sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mx-auto w-full ${getGridMaxWidthClass(4)}`}>
               {Array.from({ length: 4 }).map((_, idx) => (
-                <div key={idx} className="w-full max-w-[340px] mx-auto">
+                <div key={idx} className="w-full max-w-[340px] justify-self-center mx-auto">
                   <ProductSkeleton />
                 </div>
               ))}
             </div>
           ) : filteredProducts.length > 0 ? (
-            <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 animate-fade-in mx-auto ${getGridMaxWidthClass(filteredProducts.length)}`}>
+            <div className={`grid grid-cols-1 justify-items-center sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 animate-fade-in mx-auto w-full ${getGridMaxWidthClass(filteredProducts.length)}`}>
               {filteredProducts.map((product) => (
-                <div key={product.id} className="w-full max-w-[340px] mx-auto">
+                <div key={product.id} className="w-full max-w-[340px] justify-self-center mx-auto">
                   <ProductCard product={product} />
                 </div>
               ))}

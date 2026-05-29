@@ -10,13 +10,13 @@
   --color-bg-base: #050505;
   --color-bg-surface: #0c0c0e;
   --color-bg-elevated: #121215;
-  
+
   --color-primary: #E50914;
   --color-primary-glow: rgba(229, 9, 20, 0.15);
-  
+
   --color-accent: #ffc700;
   --color-accent-glow: rgba(255, 199, 0, 0.08);
-  
+
   --color-border: #1a1a1e;
   --color-text-high: #FFFFFF;
   --color-text-muted: #B3B3B3;
@@ -106,9 +106,11 @@ body {
   0% {
     opacity: 0.96;
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     opacity: 0.96;
   }
@@ -119,6 +121,7 @@ body {
     opacity: 0;
     transform: translateY(8px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -129,6 +132,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -205,18 +209,20 @@ input:focus-visible {
    Custom Page Layout Containers (Resolves Navbar Overlap)
    ------------------------------------------------------------- */
 .menu-page-container {
-  padding-top: 104px !important; /* Compact mobile top spacing */
+  padding-top: 104px !important;
+  /* Compact mobile top spacing */
 }
 
 @media (min-width: 768px) {
   .menu-page-container {
-    padding-top: 120px !important; /* Tight tablet spacing */
+    padding-top: 120px !important;
+    /* Tight tablet spacing */
   }
 }
 
 @media (min-width: 1024px) {
   .menu-page-container {
-    padding-top: 136px !important; /* Compact premium desktop spacing */
+    padding-top: 136px !important;
+    /* Compact premium desktop spacing */
   }
 }
-
