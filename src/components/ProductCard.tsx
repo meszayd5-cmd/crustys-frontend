@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Product } from "@/data/menuData";
+import { Product } from "@/lib/types";
 import { useCart } from "@/context/CartContext";
 
 interface ProductCardProps {
@@ -153,7 +153,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         className="absolute top-4 right-4 z-10 rounded-md bg-[#080809]/60 backdrop-blur-sm border border-[#1f1f23] px-2 py-0.5 text-[9px] font-bold text-[#93939a]"
         style={{ fontFamily: "var(--font-body)" }}
       >
-        ⏱ {product.estimatedTime}
+        ⏱ {product.estimatedTime || "15-20 min"}
       </span>
 
       {/* 
@@ -170,7 +170,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center">
-            {renderProductIcon(product.category)}
+            {renderProductIcon(product.category?.name || "")}
           </div>
         )}
       </div>

@@ -4,14 +4,31 @@ import React from "react";
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { ProductCard } from "@/components/ProductCard";
-import { menuProducts } from "@/data/menuData";
+import { useProducts } from "@/hooks/useProducts";
 import { Footer } from "@/components/Footer";
 
+// Skeleton component for premium loading feedback
+const ProductSkeleton = () => (
+  <div className="w-full bg-[#111113] border border-[#1f1f23] rounded-2xl overflow-hidden p-5 space-y-4 animate-pulse">
+    <div className="h-40 bg-[#17171a] rounded-xl w-full" />
+    <div className="space-y-2">
+      <div className="h-4 bg-[#17171a] rounded w-2/3" />
+      <div className="h-3 bg-[#17171a] rounded w-full" />
+      <div className="h-3 bg-[#17171a] rounded w-5/6" />
+    </div>
+    <div className="pt-4 border-t border-[#1f1f23]/30 flex justify-between items-center">
+      <div className="space-y-1">
+        <div className="h-2 bg-[#17171a] rounded w-8" />
+        <div className="h-4 bg-[#17171a] rounded w-16" />
+      </div>
+      <div className="h-8 bg-[#17171a] rounded-xl w-24" />
+    </div>
+  </div>
+);
+
 export default function Home() {
-  // Filter 4 main featured items for homepage appetite appeal
-  const featuredProducts = menuProducts.filter((product) => 
-    ["beef-double-smash", "chicken-fried-chicken", "platters-mac-attack", "loaded-fries-beef"].includes(product.id)
-  );
+  const { products, isLoading } = useProducts({ isFeatured: true, limit: 4 });
+  const featuredProducts = products || [];
 
   return (
     <div className="flex flex-col min-h-screen bg-[#050505]">
@@ -51,11 +68,19 @@ export default function Home() {
             className="flex flex-wrap justify-center gap-6 w-full mx-auto"
             style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", width: "100%", marginLeft: "auto", marginRight: "auto" }}
           >
-            {featuredProducts.map((product) => (
-              <div key={product.id} className="w-full max-w-[340px] sm:w-[calc(50%-12px)] sm:max-w-[340px] lg:w-[calc(25%-18px)] lg:max-w-none flex-shrink-0">
-                <ProductCard product={product} />
-              </div>
-            ))}
+            {isLoading ? (
+              Array.from({ length: 4 }).map((_, idx) => (
+                <div key={idx} className="w-full max-w-[340px] sm:w-[calc(50%-12px)] sm:max-w-[340px] lg:w-[calc(25%-18px)] lg:max-w-none flex-shrink-0">
+                  <ProductSkeleton />
+                </div>
+              ))
+            ) : (
+              featuredProducts.map((product) => (
+                <div key={product.id} className="w-full max-w-[340px] sm:w-[calc(50%-12px)] sm:max-w-[340px] lg:w-[calc(25%-18px)] lg:max-w-none flex-shrink-0">
+                  <ProductCard product={product} />
+                </div>
+              ))
+            )}
           </div>
 
           {/* CTA to Full Menu */}

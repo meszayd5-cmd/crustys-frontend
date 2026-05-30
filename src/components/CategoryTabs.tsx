@@ -1,16 +1,18 @@
 "use client";
 
 import React, { useRef } from "react";
-import { CATEGORIES } from "@/data/menuData";
+import { Category } from "@/lib/types";
 
 interface CategoryTabsProps {
   activeCategory: string;
   onSelectCategory: (category: string) => void;
+  categories?: Category[];
 }
 
 export const CategoryTabs: React.FC<CategoryTabsProps> = ({
   activeCategory,
   onSelectCategory,
+  categories = [],
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -176,17 +178,17 @@ export const CategoryTabs: React.FC<CategoryTabsProps> = ({
               role="tablist"
               className="relative flex items-center justify-start gap-2.5 sm:gap-3.5 overflow-x-auto scrollbar-none whitespace-nowrap py-2.5 pl-8 pr-6 sm:pl-10 sm:pr-8 z-10"
             >
-              {CATEGORIES.map((category) => {
-                const isActive = activeCategory === category;
-                const displayName = getCategoryDisplayName(category);
+              {categories.map((category) => {
+                const isActive = activeCategory === category.name;
+                const displayName = getCategoryDisplayName(category.name);
                 return (
                   <button
-                    key={category}
+                    key={category.id}
                     role="tab"
                     aria-selected={isActive}
                     aria-controls="menu-product-grid"
-                    id={`tab-${category.replace(/[^a-zA-Z0-9]/g, "-")}`}
-                    onClick={(e) => handleTabClick(category, e)}
+                    id={`tab-${category.name.replace(/[^a-zA-Z0-9]/g, "-")}`}
+                    onClick={(e) => handleTabClick(category.name, e)}
                     className={`snap-start inline-flex items-center gap-2.5 px-5 py-3 sm:px-6 sm:py-3.5 rounded-full font-black text-[11px] sm:text-[12px] lg:text-[12.5px] uppercase tracking-[0.08em] sm:tracking-[0.10em] transition-all duration-300 cursor-pointer select-none focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#e31c25] focus-visible:outline-offset-2 ${
                       isActive
                         ? "bg-[#0d0d0f] text-white border-2 border-[#e31c25] shadow-[0_0_20px_rgba(227,28,37,0.65),inset_0_0_10px_rgba(227,28,37,0.25)] scale-[1.04]"
@@ -196,7 +198,7 @@ export const CategoryTabs: React.FC<CategoryTabsProps> = ({
                       fontFamily: "var(--font-body)"
                     }}
                   >
-                    {renderCategoryMiniIcon(category, isActive)}
+                    {renderCategoryMiniIcon(category.name, isActive)}
                     <span>{displayName}</span>
                   </button>
                 );

@@ -153,7 +153,7 @@ export const CartDrawer: React.FC = () => {
                 
                 {/* Product mini avatar backdrop */}
                 <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-[#080809] border border-[#1f1f23]" aria-hidden="true">
-                  <span className="text-2xl" title={item.product.category}>🍔</span>
+                  <span className="text-2xl" title={item.product.category?.name || ""}>🍔</span>
                 </div>
 
                 {/* Info and Quantities grid */}

@@ -3,7 +3,8 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { CategoryTabs } from "@/components/CategoryTabs";
 import { ProductCard } from "@/components/ProductCard";
-import { menuProducts } from "@/data/menuData";
+import { useCategories } from "@/hooks/useCategories";
+import { useProducts } from "@/hooks/useProducts";
 
 // Skeleton component for premium loading feedback
 const ProductSkeleton = () => (
@@ -25,29 +26,46 @@ const ProductSkeleton = () => (
 );
 
 export default function MenuPage() {
+  const { categories, isLoading: isCategoriesLoading } = useCategories();
+  const { products, isLoading: isProductsLoading } = useProducts({ limit: 100 });
+
   const [activeCategory, setActiveCategory] = useState<string>("Burgers de bœuf / Beef Burgers");
   const [searchQuery, setSearchQuery] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isFilteringLoading, setIsFilteringLoading] = useState(false);
+
+  // Set default category once categories load
+  useEffect(() => {
+    if (categories && categories.length > 0 && !categories.some(c => c.name === activeCategory)) {
+      setActiveCategory(categories[0].name);
+    }
+  }, [categories, activeCategory]);
 
   // Trigger simulated loader when active category changes to enhance Native App feeling
   useEffect(() => {
-    setIsLoading(true);
+    setIsFilteringLoading(true);
     const timer = setTimeout(() => {
-      setIsLoading(false);
+      setIsFilteringLoading(false);
     }, 400);
     return () => clearTimeout(timer);
   }, [activeCategory]);
 
+  const isLoading = isCategoriesLoading || isProductsLoading || isFilteringLoading;
+
   // Filter products by active category & keyword search query
   const filteredProducts = useMemo(() => {
-    return menuProducts.filter((product) => {
-      const matchesCategory = product.category === activeCategory;
+    if (!products) return [];
+    return products.filter((product) => {
+      const matchesCategory = 
+        product.category?.name === activeCategory ||
+        categories?.find(c => c.name === activeCategory)?.id === product.categoryId;
+      
       const matchesSearch = 
         product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         product.description.toLowerCase().includes(searchQuery.toLowerCase());
+      
       return matchesCategory && matchesSearch;
     });
-  }, [activeCategory, searchQuery]);
+  }, [activeCategory, searchQuery, products, categories]);
 
   // Dynamically computes the maximum width of the grid container based on card count
   // to ensure it perfectly centers as a single unified showcase block with balanced margins
@@ -97,6 +115,7 @@ export default function MenuPage() {
         {/* Category Horizontal Filter Bar */}
         <CategoryTabs 
           activeCategory={activeCategory} 
+          categories={categories}
           onSelectCategory={(category) => {
             setActiveCategory(category);
             setSearchQuery(""); // Clear search on category switch for clean flow
