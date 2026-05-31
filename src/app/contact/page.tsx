@@ -268,7 +268,7 @@ export default function ContactPage() {
               </span>
               <div className="flex items-center gap-3.5">
                 <a 
-                  href="https://instagram.com" 
+                  href="https://www.instagram.com/crustysexpress?igsh=c2ptZmgzbWRweWxl" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="group flex items-center justify-center w-11 h-11 rounded-full bg-[#111113]/40 backdrop-blur-md border border-[#1f1f23]/60 text-[#93939a] hover:text-white transition-all duration-400 ease-out shadow-[0_4px_12px_rgba(0,0,0,0.4)] hover:border-[#e31c25]/50 hover:shadow-[0_0_15px_rgba(227,28,37,0.08)] hover:-translate-y-0.5"

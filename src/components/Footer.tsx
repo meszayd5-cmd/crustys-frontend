@@ -115,7 +115,7 @@ export const Footer: React.FC = () => {
                   
                   {/* Instagram Button */}
                   <a 
-                    href="https://instagram.com" 
+                    href="https://www.instagram.com/crustysexpress?igsh=c2ptZmgzbWRweWxl" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="w-14 h-14 rounded-full bg-white/[0.01] backdrop-blur-md border border-white/[0.04] hover:border-[#e31c25]/30 flex items-center justify-center text-[#93939a] hover:text-white transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-[0_8px_20px_rgba(227,28,37,0.15)] group"
