@@ -1,26 +1,26 @@
 import useSWR from 'swr';
-import categoryService from '@/services/category.service';
 import { Category } from '@/lib/types';
+import { localCategories } from '@/lib/imageMapping';
 
 /**
  * Hook for retrieving the list of active food categories.
  */
 export function useCategories() {
   const { data, error, isLoading, mutate } = useSWR<Category[]>(
-    '/categories',
-    async () => {
-      return await categoryService.getCategories();
-    },
+    '/local-categories',
+    () => Promise.resolve(localCategories),
     {
+      fallbackData: localCategories,
       revalidateOnFocus: false,
-      dedupingInterval: 60000, // category list changes infrequently
+      revalidateOnMount: false,
+      revalidateOnReconnect: false,
     }
   );
 
   return {
-    categories: data || [],
+    categories: data || localCategories,
     error,
-    isLoading,
+    isLoading: false,
     mutate,
   };
 }
@@ -29,24 +29,24 @@ export function useCategories() {
  * Hook for retrieving details of a single category by slug or uuid.
  */
 export function useCategory(idOrSlug: string, isSlug: boolean = false) {
+  const found = localCategories.find(c => c.id === idOrSlug || c.slug === idOrSlug || c.name === idOrSlug);
+
   const { data, error, isLoading, mutate } = useSWR<Category>(
-    idOrSlug ? [`/categories`, idOrSlug, isSlug] : null,
-    async () => {
-      if (isSlug) {
-        return await categoryService.getCategoryBySlug(idOrSlug);
-      } else {
-        return await categoryService.getCategoryById(idOrSlug);
-      }
-    },
+    idOrSlug ? [`/local-categories`, idOrSlug, isSlug] : null,
+    () => Promise.resolve(found as Category),
     {
+      fallbackData: found,
       revalidateOnFocus: false,
+      revalidateOnMount: false,
+      revalidateOnReconnect: false,
     }
   );
 
   return {
-    category: data,
+    category: data || found,
     error,
-    isLoading,
+    isLoading: false,
     mutate,
   };
 }
+
