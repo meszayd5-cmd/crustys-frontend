@@ -125,7 +125,7 @@ export const localProducts: Product[] = menuProducts.map((prod) => {
     isPopular: prod.isPopular,
     isNew: prod.isNew,
     estimatedTime: prod.estimatedTime,
-    spicyLevel: prod.spicyLevel || 0,
+    spicyLevel: prod.spicyLevel ?? null,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString()
   };

@@ -188,7 +188,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </h3>
           
           {/* Spicy Indicator (Pepper icons) */}
-          {product.spicyLevel && product.spicyLevel > 0 && (
+          {product.spicyLevel != null && product.spicyLevel > 0 && (
             <div className="flex gap-0.5 mt-1 items-center" title={`Spicy level: ${product.spicyLevel}/3`}>
               {Array.from({ length: product.spicyLevel }).map((_, i) => (
                 <svg
